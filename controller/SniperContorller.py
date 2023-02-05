@@ -10,8 +10,10 @@ from views.components.SniperUI import Sniper_UI
 
 class Sniper_Window(QMainWindow,Sniper_UI):
 
-    def __init__(self):
+    def __init__(self,new_sniper_key):
         super().__init__()
+        print('Sniper_Window',new_sniper_key)
+        self.new_sniper_key = new_sniper_key
     
     def mousePressEvent(self, event):
         self.offset = event.pos()

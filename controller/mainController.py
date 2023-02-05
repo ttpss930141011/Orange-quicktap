@@ -22,6 +22,9 @@ class Window(QMainWindow,Main_UI):
 
     def add_new_sniper(self):
         sniper = self.sniper_factory.createSniper()
+        if sniper == None:
+            QMessageBox.warning(self, "Warning", "The maximum number of windows is 6")
+            return
         sniper.show()              # 顯示新視窗
         x = sniper.pos().x()       # 取得新視窗目前 x 座標
         y = sniper.pos().y()       # 取得新視窗目前 y 座標
