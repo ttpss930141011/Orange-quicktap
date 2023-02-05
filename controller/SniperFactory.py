@@ -1,6 +1,4 @@
-
-from views.components.SniperUI import Sniper_Window
-
+from controller.SniperContorller import Sniper_Window
 class Sniper_factory():
 
     factory_stack = []

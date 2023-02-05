@@ -4,11 +4,8 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 import os
 import sys
-from controller.SniperFactory import Sniper_factory
-
-from views.components.SniperUI import Sniper_Window
 from random import randint
-class Main_Window(QWidget):
+class Main_UI(QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)

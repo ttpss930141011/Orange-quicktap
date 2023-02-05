@@ -5,10 +5,10 @@ import re
 from os import listdir
 from os.path import isfile, join
 from controller.SniperFactory import Sniper_factory
-from views.UI import Main_Window
+from views.UI import Main_UI
 from sys import exit
 
-class Window(QMainWindow,Main_Window):
+class Window(QMainWindow,Main_UI):
 
     def __init__(self):
         super().__init__()

@@ -4,7 +4,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon,QPalette, QBrush, QPixmap,QPainter
 import os
 import sys
-class Sniper_Window(QWidget):
+class Sniper_UI(QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -38,12 +38,4 @@ class Sniper_Window(QWidget):
         label = QLabel(self)
         label.setText('W')     # 設定標籤文字
 
-    def mousePressEvent(self, event):
-        self.offset = event.pos()
-
-    def mouseMoveEvent(self, event):
-        x = event.globalX()
-        y = event.globalY()
-        x_w = self.offset.x()
-        y_w = self.offset.y()
-        self.move(x - x_w, y - y_w)
+    
