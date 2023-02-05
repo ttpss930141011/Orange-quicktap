@@ -1,13 +1,13 @@
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QTextBrowser,  QPushButton,  QDialogButtonBox, QFormLayout, QGroupBox, QLabel, QLineEdit, QVBoxLayout, QHBoxLayout, QWidget
-from views.components.topLeftRightFileListWidget import TopLeftRightFileListWidget
 from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon
 import os
 import sys
+from controller.SniperFactory import Sniper_factory
 
-from views.components.triggerUI import trigger_Window
-
+from views.components.SniperUI import Sniper_Window
+from random import randint
 class Main_Window(QWidget):
 
     def __init__(self, parent=None):
@@ -29,7 +29,6 @@ class Main_Window(QWidget):
         self.addTabButton = QPushButton("", self)
         self.addTabButton.setIcon(QIcon(os.path.join(basedir,'add.svg')))
         self.addTabButton.setIconSize(QtCore.QSize(25, 25))
-        self.addTabButton.clicked.connect(self.showNewWindow)
         
         self.delTabButton = QPushButton("", self)
         self.delTabButton.setIcon(QIcon(os.path.join(basedir,'delete.svg')))
@@ -54,10 +53,3 @@ class Main_Window(QWidget):
         self.mainWidget = QWidget()
         self.mainWidget.setLayout(self.lay)
         self.setCentralWidget(self.mainWidget)
-
-    def showNewWindow(self):
-        self.nw = trigger_Window()       # 連接新視窗
-        self.nw.show()              # 顯示新視窗
-        x = self.nw.pos().x()       # 取得新視窗目前 x 座標
-        y = self.nw.pos().y()       # 取得新視窗目前 y 座標
-        self.nw.move(x+100, y+100)  # 移動新視窗位置
