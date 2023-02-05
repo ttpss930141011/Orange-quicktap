@@ -23,19 +23,16 @@ class Sniper_UI(QWidget):
             basedir = 'static'
         self.setWindowTitle('Trigger window')
         self.setWindowIcon(QIcon(os.path.join(basedir,'favicon.ico')))
-        self.resize(40,40)
+        self.resize(15,30)
         # self.background = QPalette()
         # self.background.setBrush(QPalette.Background, QBrush(QPixmap(os.path.join(basedir,'trigger.png'))))
         # self.setPalette(self.background)
         
         self.label = QLabel(self)
-        self.label.setFixedHeight(40)
-        self.label.setFixedWidth(40)
-        pix = QPixmap(os.path.join(basedir,'trigger.png'))       
+        self.label.setFixedHeight(23)
+        self.label.setFixedWidth(15)
+        pix = QPixmap(os.path.join(basedir,'sniper.png'))       
         self.label.setPixmap(pix)
         self.label.setScaledContents(True)
-
-        label = QLabel(self)
-        label.setText('W')     # 設定標籤文字
 
     

@@ -1,5 +1,6 @@
 import os
 from random import randint
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QApplication,QMessageBox
 import re
 from os import listdir
@@ -15,10 +16,17 @@ class Window(QMainWindow,Main_UI):
         self.__initUi()
         # self.__initVal()
         self.sniper_factory = Sniper_factory()
+        self.sniper_transparent = False
     
     def __initUi(self):
         self.addTabButton.clicked.connect(self.add_new_sniper)
         self.delTabButton.clicked.connect(self.delete_last_sniper)
+
+    def keyPressEvent(self, event):
+        if event.modifiers() & QtCore.Qt.ControlModifier and event.key() == QtCore.Qt.Key_R:
+            print('Ctrl+R')
+            QMessageBox.warning(self, "Warning", 'Ctrl+R')
+            
 
     def add_new_sniper(self):
         sniper = self.sniper_factory.createSniper()
